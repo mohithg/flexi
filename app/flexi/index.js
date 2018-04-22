@@ -27,10 +27,13 @@ class Module extends React.Component {
       ]
     };
     return (
-      <Flexi
-        onSubmit={this.onFlexiSubmit}
-        config={flexiConfig}
-      />
+      <div className="page">
+        <h1>Flexi Component</h1>
+        <Flexi
+          onSubmit={this.onFlexiSubmit}
+          config={flexiConfig}
+        />
+      </div>
     )
   }
 }
