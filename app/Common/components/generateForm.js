@@ -28,15 +28,20 @@ class GenerateForm extends React.Component {
   }
 
   generateFields({items}) {
-    const fields = _.map(items, (item, key) => {
+    let fieldsToShow = [];
+    _.each(items, (item, key) => {
       let {type, ...props} = item;
       if(type === 'TextField') {
-        return this.renderText(props, key);
+        fieldsToShow.push(this.renderText(props, key));
       } else if(type === 'DropDown') {
-        return this.renderSelect(props, key);
+        fieldsToShow.push(this.renderSelect(props, key));
       }
+      if (item.items) {
+        fieldsToShow.push(_.flatten(this.generateFields(item)));
+      }
+      return fieldsToShow;
     });
-    return _.compact(fields);
+    return _.compact(fieldsToShow);
   }
 
   render() {
