@@ -1,4 +1,5 @@
 import React from 'react';
+import {withFormsy} from 'formsy-react';
 import className from 'classnames'
 import '../styles/text.scss';
 import {isNotEmpty} from './utils';
@@ -63,7 +64,7 @@ class Text extends React.Component {
   render() {
     return (
       <div className={this.getContainerClassName()}>
-        <label className={this.getLabelClassName()} htmlFor={this.props.name}>{this.props.placeholder}</label>
+        <label className={this.getLabelClassName()} htmlFor={this.props.name}>{this.props.label}</label>
         <input
           autoComplete="off"
           ref={this.onMount}
@@ -94,4 +95,4 @@ Text.defaultProps = {
   onChange: () => {},
 };
 
-export default Text;
+export default withFormsy(Text);

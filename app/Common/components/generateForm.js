@@ -13,9 +13,7 @@ class GenerateForm extends React.Component {
     return (
       <Text
         key={key}
-        {...this.propsForFields(props)}
         {...props}
-        {...this.overridePropsForFields(props)}
       />
     );
   }
@@ -25,12 +23,11 @@ class GenerateForm extends React.Component {
       <Select
         key={key}
         {...props}
-        defaultValue={_.get(this.props.values, props.name)}
       />
     )
   }
 
-  generateFields(items) {
+  generateFields({items}) {
     const fields = _.map(items, (item, key) => {
       let {type, ...props} = item;
       if(type === 'TextField') {
@@ -48,7 +45,7 @@ class GenerateForm extends React.Component {
         onSubmit={this.props.onSubmit}
         onPrevBtnClick={this.props.onPrevBtnClick}
       >
-        {this.generateFields(this.props.items)}
+        {this.generateFields(this.props.config)}
       </Form>
     );
   }

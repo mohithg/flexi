@@ -1,5 +1,6 @@
 import React from 'react';
 import SelectWrapper from 'react-select';
+import {withFormsy} from 'formsy-react';
 import '../styles/select.scss';
 import {isNullOrUndefined} from './utils';
 import className from 'classnames';
@@ -40,11 +41,16 @@ class Select extends React.Component {
   }
 
   render() {
+    const values = _.map(this.props.values, (value) => ({
+      label: value,
+      value,
+    }));
     return (
       <div className={this.getLabelClassName()}>
+        <div>{this.props.label}</div>
         <SelectWrapper
           multi={this.props.multiple}
-          options={this.props.values}
+          options={values}
           placeholder={this.props.label}
           onChange={this.onChange}
           value={isNullOrUndefined(this.props.getValue()) ? '' : this.props.getValue()}
@@ -59,4 +65,4 @@ Select.defaultProps = {
   list: [],
 };
 
-export default Select;
+export default withFormsy(Select);
