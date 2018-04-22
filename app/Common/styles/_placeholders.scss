@@ -1,0 +1,43 @@
+@import "mixins";
+// Placeholders
+
+%font8 {
+  @include font-size(8px);
+}
+
+
+%font10 {
+  @include font-size(10px);
+}
+
+
+%font14 {
+  @include font-size(14px);
+}
+
+%font16 {
+  @include font-size(16px);
+}
+
+%font20 {
+  @include font-size(20px);
+}
+
+%bold {
+  font-weight: 800;
+}
+
+%uppercase {
+  text-transform: uppercase;
+}
+
+%sub-heading {
+  @extend %font8;
+  letter-spacing: 2px;
+  font-weight: normal;
+}
+
+%heading {
+  @extend %font20;
+  @extend %bold;
+}

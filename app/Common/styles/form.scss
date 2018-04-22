@@ -1,0 +1,44 @@
+.btn-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  .btn-wrapper {
+    margin: 10px;
+  }
+}
+
+.select-container {
+  max-width: 272px !important;
+}
+
+.select-wrapper {
+  max-width: 250px;
+}
+
+.text-container {
+  .text-input {
+    box-sizing: border-box;
+  }
+}
+
+form {
+  .form-items {
+    > div {
+      width: 100%;
+      max-width: 280px;
+    }
+    .upload-page {
+      max-width: 100%;
+    }
+    box-sizing: border-box;
+    .hidden {
+      display: none;
+    }
+  }
+}
+
+.info {
+  a {
+    cursor: pointer;
+  }
+}

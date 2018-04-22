@@ -1,0 +1,18 @@
+// Mixins
+@mixin round-border($radius: 4px) {
+  border-radius: $radius;
+}
+
+@mixin font-size($font-size: 10px) {
+  font-size: $font-size;
+}
+
+@mixin round-icon($size: 20px) {
+  width: $size;
+  height: $size;
+  border-radius: $size / 2;
+}
+
+@mixin border($color, $width: 1px, $size: solid) {
+  border: $width $size $color;
+}

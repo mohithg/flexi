@@ -1,0 +1,61 @@
+@import "colors";
+@import "mixins";
+@import "placeholders";
+
+.text-container {
+  position: relative;
+  max-width: 250px;
+}
+.text-label {
+  color: $greyish-blue;
+  box-sizing: border-box;
+  display: block;
+  @extend %font10;
+  line-height: 1;
+  opacity: 0;
+  overflow: hidden;
+  padding: 5px 10px;
+  pointer-events: none;
+  position: absolute;
+  text-overflow: ellipsis;
+  top: 0;
+  text-align: left;
+  transform: translateY(3px);
+  transition: all .2s ease-out;
+  user-select: none;
+  white-space: nowrap;
+  width: 100%;
+  z-index: 0;
+  .no-data & {
+    opacity: 1;
+    transform: none;
+  }
+}
+.text-input {
+  @include border($greenish-blue);
+  @include round-border;
+  @extend %font16;
+  color: $greenish-blue;
+  padding: 10px;
+  transition: all .2s ease-out;
+  width: 100%;
+  &:hover, &:focus {
+    /* inset | offset-x | offset-y | blur-radius | spread-radius | color */
+    transition: .2s;
+    background-color: $light-grey;
+    outline: 0;
+  }
+
+  &::placeholder {
+    color: $greyish-blue;
+  }
+
+  &:focus::placeholder {
+    transition: all .2s ease-out;
+    opacity: 0;
+  }
+  .no-data & {
+    padding-bottom: 2px;
+    padding-top: 18px;
+  }
+}
